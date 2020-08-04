@@ -1,3 +1,4 @@
+# calculating alice ranks against each game
 def climbing_leaderboard(leaderboard_scores, alice_score)
   positions = alice_score.map do |score|
     position = -1
@@ -12,20 +13,23 @@ def climbing_leaderboard(leaderboard_scores, alice_score)
       end
     end
     leaderboard_scores.push(score)
-    # With updating leaderboard after each turn
+    # In case, Updating leaderboard after each game played by alice
     # puts "Updating leaderboard...\n Learderboard now: #{leaderboard_scores.sort! { |x, y| y <=> x }}"
     [score, position]
   end
 end
 
+# validating number of players
 def validate_leaderboard_players?(players)
   players >= 1 && players <= (2 * 10 ** 5) ? true : false
 end
 
+# validating games limit played by alice
 def validate_alice_games?(games)
   games >= 1 && games <= (2 * 10 ** 5) ? true : false
 end
 
+# validating scores limit
 def validate_scores?(scores)
   scores.each do |score|
     return false if (score < 0) || (score > (10 ** 9))
@@ -33,12 +37,15 @@ def validate_scores?(scores)
   return true
 end
 
+# main
+# taking input from the user in the required format
 leaderboard_players = gets.chomp.to_i
 scores = gets.chomp.split(" ").map { |i| i.to_i }.take(leaderboard_players).sort! { |x, y| y <=> x }
 
 alice_games = gets.chomp.to_i
 alice_scores = gets.chomp.split(" ").map { |i| i.to_i }.take(alice_games).sort
 
+# validations
 unless (validate_leaderboard_players? leaderboard_players) && (validate_alice_games? alice_games)
   puts "Invalid leaderboard or alice games"
   return
@@ -49,9 +56,11 @@ unless (validate_scores? scores) && (validate_scores? alice_scores)
   return
 end
 
+# display
 puts "Leaderboard: #{scores}"
 puts "Alice Score: #{alice_scores}"
 
+# display output
 climbing_leaderboard(scores, alice_scores).each_with_index do |position, index|
   puts "Game #{index + 1} Score is #{position[0]} and rank is #{position[1]}"
 end

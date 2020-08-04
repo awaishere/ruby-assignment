@@ -6,12 +6,12 @@ def is_valid?(input_string)
   new_array.max > new_array.min + 1 ? "No" : "Yes"
 end
 
-# Validating length of string
+# validating length of string
 def validate_length?(input)
   input.length > 0 && input.length < (10 ** 5) ? true : false
 end
 
-# Validating required pattern
+# validating required pattern
 def validate_characters?(input)
   input.match? (/^[a-z]*$/)
 end
