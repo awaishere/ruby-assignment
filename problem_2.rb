@@ -1,3 +1,5 @@
+INPUT_LENGTH = 10 ** 5
+
 def is_valid?(input_string)
   characters = input_string.split("")
   new_array = characters.uniq.map do |character|
@@ -8,7 +10,7 @@ end
 
 # validating length of string
 def validate_length?(input)
-  input.length > 0 && input.length < (10 ** 5) ? true : false
+  input.length > 0 && input.length < INPUT_LENGTH ? true : false
 end
 
 # validating required pattern

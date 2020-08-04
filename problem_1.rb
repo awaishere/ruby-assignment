@@ -1,3 +1,6 @@
+UPPER_LIMIT = 2 * 10 ** 5
+SCORE_LIMIT = 10 ** 9
+
 # calculating alice ranks against each game
 def climbing_leaderboard(leaderboard_scores, alice_score)
   positions = alice_score.map do |score|
@@ -21,18 +24,18 @@ end
 
 # validating number of players
 def validate_leaderboard_players?(players)
-  players >= 1 && players <= (2 * 10 ** 5) ? true : false
+  players >= 1 && players <= UPPER_LIMIT ? true : false
 end
 
 # validating games limit played by alice
 def validate_alice_games?(games)
-  games >= 1 && games <= (2 * 10 ** 5) ? true : false
+  games >= 1 && games <= UPPER_LIMIT ? true : false
 end
 
 # validating scores limit
 def validate_scores?(scores)
   scores.each do |score|
-    return false if (score < 0) || (score > (10 ** 9))
+    return false if (score < 0) || (score > SCORE_LIMIT)
   end
   return true
 end
