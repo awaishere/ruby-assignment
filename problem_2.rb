@@ -5,7 +5,10 @@ def is_valid?(input_string)
   new_array = characters.uniq.map do |character|
     characters.count(character)
   end
-  new_array.max > new_array.min + 1 ? "No" : "Yes"
+
+  (new_array.max == new_array.min) ||
+    (new_array.count(new_array.min) == 1 && new_array.min == 1 && new_array.uniq.length == 2) ||
+    (new_array.count(new_array.max) == 1 && new_array.max <= new_array.min + 1) ? "YES" : "NO"
 end
 
 # validating length of string
