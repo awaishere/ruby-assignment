@@ -15,8 +15,8 @@ def climbing_leaderboard(leaderboard_scores, alice_score)
         position = index + 2
       end
     end
-    leaderboard_scores.push(score)
     # In case, Updating leaderboard after each game played by alice
+    # leaderboard_scores.push(score)
     # puts "Updating leaderboard...\n Learderboard now: #{leaderboard_players.sort!.reverse}"
     [score, position]
   end
