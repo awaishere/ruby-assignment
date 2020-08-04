@@ -39,10 +39,14 @@ end
 
 # main
 # taking input from the user in the required format
+print "Enter number of players on the leaderboard: "
 leaderboard_players = gets.chomp.to_i
+print "Enter player's leaderboard scores: "
 scores = gets.chomp.split(" ").map { |i| i.to_i }.take(leaderboard_players).sort!.reverse
 
+print "Enter number of games played by alice: "
 alice_games = gets.chomp.to_i
+print "Enter scores made by alice in each game: "
 alice_scores = gets.chomp.split(" ").map { |i| i.to_i }.take(alice_games).sort
 
 # validations
