@@ -14,7 +14,7 @@ def climbing_leaderboard(leaderboard_scores, alice_score)
     end
     leaderboard_scores.push(score)
     # In case, Updating leaderboard after each game played by alice
-    # puts "Updating leaderboard...\n Learderboard now: #{leaderboard_scores.sort! { |x, y| y <=> x }}"
+    # puts "Updating leaderboard...\n Learderboard now: #{leaderboard_players.sort!.reverse}"
     [score, position]
   end
 end
@@ -40,7 +40,7 @@ end
 # main
 # taking input from the user in the required format
 leaderboard_players = gets.chomp.to_i
-scores = gets.chomp.split(" ").map { |i| i.to_i }.take(leaderboard_players).sort! { |x, y| y <=> x }
+scores = gets.chomp.split(" ").map { |i| i.to_i }.take(leaderboard_players).sort!.reverse
 
 alice_games = gets.chomp.to_i
 alice_scores = gets.chomp.split(" ").map { |i| i.to_i }.take(alice_games).sort
