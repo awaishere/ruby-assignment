@@ -18,6 +18,7 @@ def validate_characters?(input)
   input.match? (/^[a-z]*$/)
 end
 
+# main
 puts "Please enter input string"
 input_string = gets.chomp
 
